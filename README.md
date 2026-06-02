@@ -9,9 +9,12 @@ máquina e falam com a instância do SingularOS via HTTPS autenticado por um
 **Personal Access Token (PAT)**. O token fica só na sua máquina — nunca é
 embutido no código nem enviado para terceiros.
 
-> Este repositório é **privado** e compartilhado apenas com pessoas de confiança.
-> O acesso ao código garante o acesso ao install via `npx` (porque o git usa a
-> sua autenticação do GitHub). Quem não tem acesso ao repo não consegue instalar.
+> Sem um **Personal Access Token (PAT)** válido — gerado dentro de uma instância
+> do SingularOS por um usuário autenticado — o servidor não faz nada. Clonar
+> ou instalar o pacote não dá acesso a dado nenhum.
+>
+> ⚠️ **Instale só a partir deste repositório oficial** (`github.com/fastphoenixx/singular-os-mcp`).
+> Forks de terceiros podem ter sido modificados para exfiltrar tokens.
 
 ## Como funciona
 
@@ -40,8 +43,8 @@ Edite o arquivo de configuração do Claude Desktop:
 - **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
 - **Linux:** `~/.config/Claude/claude_desktop_config.json`
 
-Adicione a entrada `singular-os` em `mcpServers`. Como o repo é privado, o
-`npx` usa as suas credenciais do `git` para clonar e buildar na hora:
+Adicione a entrada `singular-os` em `mcpServers`. O `npx` clona o repo público
+e builda na hora (precisa de `git` e Node 20+ instalados):
 
 ```json
 {
@@ -72,7 +75,7 @@ Para atualizar para a versão mais nova do repo, limpe o cache do npx
 
 ### Alternativa: clone manual (caso o `npx` falhe)
 
-Útil para desenvolvimento ou se o `npx` não conseguir autenticar no repo privado:
+Útil para desenvolvimento ou em ambientes sem `git` disponível pro `npx`:
 
 ```bash
 git clone https://github.com/fastphoenixx/singular-os-mcp.git
