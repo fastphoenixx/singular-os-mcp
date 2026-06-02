@@ -1,0 +1,28 @@
+{
+  "name": "singular-os-mcp",
+  "version": "0.1.0",
+  "description": "MCP server local (stdio) para conectar o SingularOS ao Claude e outras integrações.",
+  "type": "module",
+  "bin": {
+    "singular-os-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc",
+    "start": "node dist/index.js",
+    "dev": "node --experimental-strip-types src/index.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}
